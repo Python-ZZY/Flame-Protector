@@ -203,7 +203,9 @@ class Game(Scene):
                 self.last_add_particle = now
                 
                 for i in range(70):
-                    self.fire.add(Particle(self, random.randint(*self.fire_pos), HEIGHT + random.randint(0, 100)))
+                    self.fire.add(Particle(self, random.randint(self.fire_pos[0], self.fire_pos[1]), HEIGHT + random.randint(0, 100)))
+                    # self.fire.add(Particle(self, random.randint(*self.fire_pos), HEIGHT + random.randint(0, 100)))
+                    # python version problems
 
                 self.add_temp(-100)
                 if not self.alive:
