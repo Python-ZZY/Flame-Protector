@@ -204,8 +204,6 @@ class Game(Scene):
                 
                 for i in range(70):
                     self.fire.add(Particle(self, random.randint(self.fire_pos[0], self.fire_pos[1]), HEIGHT + random.randint(0, 100)))
-                    # self.fire.add(Particle(self, random.randint(*self.fire_pos), HEIGHT + random.randint(0, 100)))
-                    # python version problems
 
                 self.add_temp(-100)
                 if not self.alive:
@@ -213,7 +211,8 @@ class Game(Scene):
                         self.best_score = self.score
                         self.update_clock()
                     self.update_tip("Game Over!\nPress <Spacebar> to reset the fire")
-
+                    pg.mixer.music.fadeout(1000)
+                    
             if now - self.last_update_clock >= 1000:
                 self.last_update_clock = now
                 self.update_clock(now)
